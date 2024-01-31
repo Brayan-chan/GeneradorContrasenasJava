@@ -1,0 +1,50 @@
+Importaciones de las librerias
+
+Ventana
+
+        // Configuración de la ventana 
+
+        // Panel para los campos de entrada
+
+        // Etiquetas y campos de texto
+
+Botones
+
+        // Botón Generar
+
+        // Botón Guardar
+
+Manipular el DOM
+
+        // Agregar componentes al panel de entrada
+
+        // Área para mostrar contraseñas
+
+        // Agregar componentes a la ventana principal
+
+IMPORTANTE: !Hacer visible la ventana¡
+
+        // Mostrar la ventana
+
+Metodos
+
+        // Generar una contrasena aleatoria
+
+        // Guardar la contraseña
+
+        // Mostrar las contraseñas guardadas en el arreglo
+
+Longitud de la contraseña
+
+        //Definir la longitud de la contraseña
+
+
+Comprobaciones y pruebas
+
+        // Mostrar las contraseñas en la interfaz y en la terminal
+
+        // Metodo main
+
+CONSULTAS
+
+        //https://github.com/Brayan-chan/Generador-Contrasenas-php.git
