@@ -14,6 +14,14 @@ Botones
 
         // Botón Guardar
 
+Configuar el tipo de Layout
+
+        //              Colum1            Colum2
+        //row1          Nombre                    
+        //row2          Contrasena                
+        //row3          Correo       
+        //row4          Generar           Guardar
+
 Manipular el DOM
 
         // Agregar componentes al panel de entrada

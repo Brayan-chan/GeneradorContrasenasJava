@@ -8,6 +8,7 @@ import java.util.Random;
 public class GeneradorContrasenas extends JFrame {
 
     private JTextField nombreField;
+    private JTextField correoField;
     private JTextField contrasenaField;
     private JTextArea contrasenasArea;
     private ArrayList<String> contrasenas;
@@ -20,12 +21,20 @@ public class GeneradorContrasenas extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        JPanel inputPanel = new JPanel(new GridLayout(3, 2));
+        //              Colum1            Colum2
+        //row1          Nombre                    
+        //row2          Contrasena                
+        //row3          Correo       
+        //row4          Generar           Guardar
+        
+        JPanel inputPanel = new JPanel(new GridLayout(4, 2));
 
         JLabel nombreLabel = new JLabel("Nombre:");
         nombreField = new JTextField();
         JLabel contrasenaLabel = new JLabel("Contraseña:");
         contrasenaField = new JTextField();
+        JLabel correoLabel = new JLabel("Correo");
+        correoField = new JTextField();
 
         JButton generarButton = new JButton("Generar");
         generarButton.addActionListener(new ActionListener() {
@@ -47,6 +56,8 @@ public class GeneradorContrasenas extends JFrame {
         inputPanel.add(nombreField);
         inputPanel.add(contrasenaLabel);
         inputPanel.add(contrasenaField);
+        inputPanel.add(correoLabel);
+        inputPanel.add(correoField);
         inputPanel.add(generarButton);
         inputPanel.add(guardarButton);
 
@@ -68,37 +79,36 @@ public class GeneradorContrasenas extends JFrame {
         String caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_!$%&/()=?¡¿";
         Random rand = new Random();
         StringBuilder contrasena = new StringBuilder();
+
         for (int i = 0; i < 10; i++) {
             int index = rand.nextInt(caracteres.length());
             contrasena.append(caracteres.charAt(index));
         }
-
         return contrasena.toString();
     }
 
     private void guardarContrasena() {
         String nombre = nombreField.getText();
         String contrasena = contrasenaField.getText();
+        String correo = correoField.getText();
 
-        if (!nombre.isEmpty() && !contrasena.isEmpty()) {
-            String nuevaContrasena = "Nombre: " + nombre + "\nContraseña: " + contrasena + "\n";
+        if (!nombre.isEmpty() && !contrasena.isEmpty() && !correo.isEmpty()) {
+            String nuevaContrasena = "Nombre: " + nombre + "\nContraseña: " + contrasena + "\nCorreo: " + correo + "\n";
 
             contrasenas.add(nuevaContrasena);
-            mostrarContrasenas();
+            mostrarContrasena(contrasenas.size() - 1);
         } else {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese un nombre y una contraseña.");
         }
     }
 
-    private void mostrarContrasenas() {
-        contrasenasArea.setText("Contraseñas:\n");
-        for (String contrasena : contrasenas) {
-            contrasenasArea.append(contrasena + "\n");
-        }
-        System.out.println("Contraseñas:");
-        for (String contrasena : contrasenas) {
-            System.out.println(contrasena);
-        }
+    private void editarContrasenas() {
+        contrasenasArea.setEditable(true);
+    }
+
+    private void mostrarContrasena(int index) {
+        contrasenasArea.append(contrasenas.get(index) + "\n");
+        System.out.println(contrasenas.get(index));
     }
 
     public static void main(String[] args) {
